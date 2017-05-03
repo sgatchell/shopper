@@ -1,7 +1,7 @@
 class ApplicantsController < ApplicationController
+
   def new
     @applicant = Applicant.new
-    
   end
 
   def create
@@ -21,6 +21,8 @@ class ApplicantsController < ApplicationController
   def show
     # your code here
   end
+
+  private
 
   def applicant_params
     params.require(:applicant).permit(:email, :first_name, :last_name, :phone, :phone_type, :region)

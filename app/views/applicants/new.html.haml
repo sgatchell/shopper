@@ -1,1 +1,9 @@
-- # your applicant landing page/form goes here!
+
+= bootstrap_form_for(@applicant) do |f|
+	= f.text_field :first_name, placeholder: 'first name'
+	= f.text_field :last_name,  placeholder: 'last name'
+	= f.email_field :email,     placeholder: 'email'
+	= f.phone_field :phone,     placeholder: 'phone'
+	= f.select :phone_type, Applicant::PHONE_TYPES, {label: 'phone type'}
+	= f.select :region, Applicant::REGIONS, label: 'region'
+	= f.submit value: 'Apply Now'

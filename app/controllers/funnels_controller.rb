@@ -1,6 +1,8 @@
 class FunnelsController < ApplicationController
   def index
-    @funnel = {} # your code goes here
+    start_date = params[:start_date] || Date.today - 1.month
+    end_date   = params[:end_date]   || Date.today
+    @funnel = get_funnel start_date, end_date
 
     respond_to do |format|
       format.html { @chart_funnel = formatted_funnel }
@@ -26,5 +28,12 @@ class FunnelsController < ApplicationController
         values: v
       }
     end
+  end
+
+  def get_funnel(start_date, end_date)
+    h = {}
+    h['2014-12-01-2014-12-07'] = {'applied' => 5, 'hired' => 1}
+    h['2014-11-01-2014-11-07'] = {'applied' => 1, 'rejected' => 2}
+    h
   end
 end

@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'rails-assets-nvd3'
 gem 'bootstrap-sass'
 gem 'haml-rails'
+gem 'bootstrap_form'
 
 
 group :development, :test do

@@ -1,3 +1,10 @@
+- I had bundling errors building native extensions using the sample app. Worked around by created rails project from scratch and copying code from the sample app in the scratch app
+
+Funnel Assumptions:
+- Applicant.created_at can represent the date applicant applied
+- json endpoint works but I there is an issue with haml coffeescript handling of the formatted json. Timeboxed the investigation, moving on for now.
+
+
 Shopper Challenge
 =================
 

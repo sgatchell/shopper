@@ -1,9 +1,17 @@
+Tradeoffs:
+
 - I had bundling errors building native extensions using the sample app. Worked around by created rails project from scratch and copying code from the sample app in the scratch app
 
-Funnel Assumptions:
-- Applicant.created_at can represent the date applicant applied
-- json endpoint works but I there is an issue with haml coffeescript handling of the formatted json. Timeboxed the investigation, moving on for now.  
+- Given the time limits I chose not to write a suite of rspec tests
 
+Funnel Analyis
+- I took extra time to get all of the grouped data in one DB query.
+- I assumed that Applicant.created_at can represent the date applicant applied and thus Applicant did not need a separate :applied_at date.
+- The funnel json endpoint is complete. There is an issue with haml coffeescript handling of the formatted json. It was a problem even with a hardcoded sample funnel.  I timeboxed the investigation before moving on to the shopper application workflow.
+
+Shopper Application
+- I pulled in a gem to write bootstrap forms to save time. However, I spent a bit of time fighting with it in the end to minimize vertical expansion of form fields when showing error text.
+- I did not validate the format of phone and email.
 
 Shopper Challenge
 =================

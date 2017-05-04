@@ -2,7 +2,7 @@
 
 Funnel Assumptions:
 - Applicant.created_at can represent the date applicant applied
-- json endpoint works but I there is an issue with haml coffeescript handling of the formatted json. Timeboxed the investigation, moving on for now.
+- json endpoint works but I there is an issue with haml coffeescript handling of the formatted json. Timeboxed the investigation, moving on for now.  
 
 
 Shopper Challenge

@@ -1,21 +1,33 @@
 class ApplicantsController < ApplicationController
 
   def new
+    # get from rails cache if session has email else...
+    # redirect to background check if persisted
+    # redirect to confirmation if application complete 
     @applicant = Applicant.new
   end
 
   def create
     @applicant = Applicant.new(applicant_params.merge(workflow_state: 'applied'))
     if @applicant.save
-      render text: 'good work!'
+      redirect_to background_check_applicant_path(@applicant)
     else
-      ap @applicant.errors.full_messages
       render :new
     end
   end
 
+  def background_check
+    @applicant = Applicant.find(params[:id])
+  end
+
   def update
-    # your code here
+    @applicant = Applicant.find(params[:id])
+    if @applicant.update_attributes(applicant_params) && @applicant.permits_background_check
+      render :confirmation
+    else
+      @applicant.errors.add(:permits_background_check, 'we need your permission')
+      render :background_check
+    end
   end
 
   def show
@@ -25,6 +37,6 @@ class ApplicantsController < ApplicationController
   private
 
   def applicant_params
-    params.require(:applicant).permit(:email, :first_name, :last_name, :phone, :phone_type, :region)
+    params.require(:applicant).permit(:email, :first_name, :last_name, :phone, :phone_type, :region, :permits_background_check)
   end
 end

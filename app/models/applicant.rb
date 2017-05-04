@@ -10,4 +10,8 @@ class Applicant < ActiveRecord::Base
   validates :phone_type, presence: true
   validates :workflow_state, presence: true
   validates :region, presence: true
+
+  def applied?
+    persisted? && permits_background_check?
+  end
 end

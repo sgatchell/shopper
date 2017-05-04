@@ -1,4 +1,8 @@
-= bootstrap_form_for(@applicant) do |f|
-	= f.form_group :permits_background_check do
-		= f.check_box :permits_background_check, label: 'Can we check your background?'
-	= f.submit 'Next'
+
+.applicant-box
+  .h3 With your permission
+  .h4 We check all of our shoppers for blemishes
+  = bootstrap_form_for(@applicant) do |f|
+    = f.form_group :permits_background_check do
+      = f.check_box :permits_background_check, label: 'May we check your background?'
+    = f.submit 'Next'

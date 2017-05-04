@@ -1,0 +1,31 @@
+.applicant-box {
+  margin: 20px auto;
+  width: 50%;
+  max-width: 50%;
+  text-align: center;
+  color: #5E5E5E;
+  background-color: #E6F2E6;
+  border: 1px solid green;
+  padding: 12px;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+.applicant-box a {
+  color: #5E5E5E;
+}
+.applicant-form {
+  margin: 10px;
+  .first_name {
+    width: 46%;
+    float: left;
+  }
+  .last_name {
+    width: 46%;
+    float: right;
+  }
+  .help-block {
+    text-align: left;
+    margin-top: 0px;
+    margin-bottom: -10px;
+  }
+}

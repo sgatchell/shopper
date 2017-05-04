@@ -1,9 +1,14 @@
-
-= bootstrap_form_for(@applicant) do |f|
-	= f.text_field :first_name, placeholder: 'first name'
-	= f.text_field :last_name,  placeholder: 'last name'
-	= f.email_field :email,     placeholder: 'email'
-	= f.phone_field :phone,     placeholder: 'phone'
-	= f.select :phone_type, Applicant::PHONE_TYPES, {label: 'phone type'}
-	= f.select :region, Applicant::REGIONS, label: 'region'
-	= f.submit value: 'Apply Now'
+.applicant-box
+  .h3 Apply in under 5 minutes
+  .applicant-form
+    = bootstrap_form_for(@applicant) do |f|
+      .names
+        = f.text_field :first_name, hide_label: true, placeholder: 'first name', wrapper: { class: 'first_name'}
+        = f.text_field :last_name,  hide_label: true, placeholder: 'last name', wrapper: { class: 'last_name'}
+      = f.email_field :email,     hide_label: true, placeholder: 'email'
+      = f.phone_field :phone,     hide_label: true, placeholder: 'phone'
+      = f.select :phone_type, Applicant::PHONE_TYPES, hide_label: true
+      = f.select :region,     Applicant::REGIONS,     hide_label: true
+      = f.submit value: 'Continue', class: 'btn alert-success'
+      .fine-print
+        %small We will use this information to communicate with you about your application.

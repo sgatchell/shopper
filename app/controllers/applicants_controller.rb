@@ -27,7 +27,7 @@ class ApplicantsController < ApplicationController
     if @applicant.update_attributes(applicant_params) && @applicant.permits_background_check
       render :confirmation
     else
-      @applicant.errors.add(:permits_background_check, 'we need your permission')
+      @applicant.errors.add(:permits_background_check, 'We need your permission to move forward.')
       render :background_check
     end
   end
